@@ -5,5 +5,5 @@ CREATE TABLE teams (
   name VARCHAR(255),
   win INT,
   draw INT,
-  lose INT
+  loss INT
 );
