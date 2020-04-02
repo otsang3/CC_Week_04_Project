@@ -64,9 +64,10 @@ class Fixture
     when winning_team_id == @away_team_id
       @result = "AWAY"
       update
-    else
+    when winning_team_id == "draw"
       @result = "DRAW"
       update
+    else return nil
     end
   end
 

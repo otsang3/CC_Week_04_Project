@@ -1,5 +1,7 @@
 DROP TABLE IF EXISTS fixtures;
+DROP TABLE IF EXISTS players;
 DROP TABLE IF EXISTS teams;
+
 
 CREATE TABLE teams (
   id SERIAL PRIMARY KEY,
@@ -7,6 +9,17 @@ CREATE TABLE teams (
   win INT,
   draw INT,
   loss INT
+);
+
+CREATE TABLE players (
+  id SERIAL PRIMARY KEY,
+  first_name VARCHAR(255),
+  last_name VARCHAR(255),
+  team_id INT REFERENCES INTO teams(id) ON DELETE CASCADE,
+  goals INT,
+  assists INT,
+  yellow_cards INT,
+  red_cards INT
 );
 
 CREATE TABLE fixtures (

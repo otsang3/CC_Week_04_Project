@@ -1,14 +1,18 @@
 require('minitest/autorun')
 require('minitest/reporters')
-Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
-
 require_relative('../models/team')
+require_relative('../models/fixture')
+
+Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
 
 
 class TeamTest < MiniTest::Test
 
   def setup()
     @team_liv = Team.new('name' => 'Liverpool')
+    @team_mci = Team.new({'name' => 'Manchester City'})
+    @fixture1 = Fixture.new({'home_team_id' => @team_liv.id,
+                            'away_team_id' => @team_mci.id})
   end
 
   def test_win_match()
