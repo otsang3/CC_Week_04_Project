@@ -56,7 +56,7 @@ class Team
     update
   end
 
-  def win_match()
+  def lose_match()
     @loss += 1
     update
   end
