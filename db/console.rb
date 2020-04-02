@@ -1,6 +1,7 @@
 require('pry-byebug')
 require_relative('../models/team.rb')
 require_relative('../models/fixture.rb')
+require_relative('../models/player.rb')
 
 team_liv = Team.new({'name' => 'Liverpool'})
 team_liv.save()
@@ -23,6 +24,18 @@ fixture3 = Fixture.new({'home_team_id' => team_mci.id,
 fixture1.save()
 fixture2.save()
 fixture3.save()
+
+player1 = Player.new({'first_name' => 'Sadio',
+                      'last_name' => 'Mane',
+                      'team_id' => team_liv.id
+                      })
+player2 = Player.new({'first_name' => 'Sergio',
+                      'last_name' => 'Aguero',
+                      'team_id' => team_mci.id
+                      })
+
+player1.save()
+player2.save()
 
 binding.pry
 nil
