@@ -11,7 +11,11 @@ team_mci.save()
 fixture1 = Fixture.new({'home_team_id' => team_liv.id,
                         'away_team_id' => team_mci.id})
 
+fixture1.save()
 
+fixture1.home_team_id = team_mci.id
+
+fixture1.update()
 
 
 
