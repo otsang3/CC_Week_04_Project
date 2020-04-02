@@ -1,3 +1,4 @@
+DROP TABLE IF EXISTS fixtures;
 DROP TABLE IF EXISTS teams;
 
 CREATE TABLE teams (
@@ -6,4 +7,10 @@ CREATE TABLE teams (
   win INT,
   draw INT,
   loss INT
+);
+
+CREATE TABLE fixtures (
+  id SERIAL PRIMARY KEY,
+  home_team_id INT REFERENCES teams(id),
+  away_team_id INT REFERENCES teams(id)
 );
