@@ -2,6 +2,9 @@ require_relative('../db/sql_runner')
 
 class Team
 
+  attr_accessor :name, :win, :draw, :loss
+  attr_reader :id
+
   def initialize(options)
     @name = options['name']
     @id = options['id'].to_i
@@ -22,6 +25,14 @@ class Team
     sql = "SELECT * FROM teams"
     result = SqlRunner.run(sql, [])
     return result.map {|team| Team.new(team)}
+  end
+
+  def update()
+    sql = "UPDATE teams
+           SET name = $1
+           WHERE id = $2"
+    values = [@name, @id]
+    SqlRunner.run(sql, values)
   end
 
 end
