@@ -15,6 +15,22 @@ class TeamTest < MiniTest::Test
                             'away_team_id' => @team_mci.id})
   end
 
+  def test_get_name()
+    assert_equal('Liverpool', @team_liv.name)
+  end
+
+  def test_get_win()
+    assert_equal(0, @team_liv.win)
+  end
+
+  def test_get_draw
+    assert_equal(0, @team_liv.draw)
+  end
+
+  def test_get_loss()
+    assert_equal(0, @team_liv.loss)
+  end
+
   def test_win_match()
     @team_liv.win_match
     assert_equal(1, @team_liv.win)
