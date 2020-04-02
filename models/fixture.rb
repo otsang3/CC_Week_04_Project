@@ -1,21 +1,23 @@
 require_relative('../db/sql_runner')
+require_relative('./team')
 
 class Fixture
 
-  attr_accessor :home_team_id, :away_team_id
+  attr_accessor :home_team_id, :away_team_id, :result
   attr_reader :id
 
   def initialize(options)
     @home_team_id = options['home_team_id'].to_i
     @away_team_id = options['away_team_id'].to_i
+    @result = ''
     @id = options['id'].to_i
   end
 
   def save()
     sql = "INSERT INTO fixtures (
-          home_team_id, away_team_id
-          ) VALUES ($1, $2) RETURNING *"
-    values = [@home_team_id, @away_team_id]
+          home_team_id, away_team_id, result
+          ) VALUES ($1, $2, $3) RETURNING *"
+    values = [@home_team_id, @away_team_id, @result]
     result = SqlRunner.run(sql, values).first
     @id = result['id'].to_i
   end
@@ -28,9 +30,9 @@ class Fixture
 
   def update()
     sql = "UPDATE fixtures
-           SET home_team_id = $1, away_team_id = $2
-           WHERE id = $3"
-    values = [@home_team_id, @away_team_id, @id]
+           SET home_team_id = $1, away_team_id = $2, result = $3
+           WHERE id = $4"
+    values = [@home_team_id, @away_team_id, @result, @id]
     SqlRunner.run(sql, values)
   end
 
@@ -43,6 +45,29 @@ class Fixture
     sql = "DELETE FROM fixtures WHERE id = $1"
     values = [id]
     SqlRunner.run(sql, values)
+  end
+
+  def Fixture.teams(fixture)
+    sql = "SELECT * FROM teams WHERE id = $1 or id = $2"
+    values = [fixture.home_team_id, fixture.away_team_id]
+    result = SqlRunner.run(sql, values)
+    return result.map {|team| Team.new(team)}
+  end
+
+  # Determines the winner of the match and updates the tables
+  # if draw, put 'draw' as the parameter
+  def result(winning_team_id)
+    case
+    when winning_team_id == @home_team_id
+      @result = "HOME"
+      update
+    when winning_team_id == @away_team_id
+      @result = "AWAY"
+      update
+    else
+      @result = "DRAW"
+      update
+    end
   end
 
 end

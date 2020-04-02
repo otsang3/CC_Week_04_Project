@@ -61,10 +61,10 @@ class Team
     update
   end
 
-  def fixtures()
+  def Team.fixtures(team)
     sql = "SELECT * FROM fixtures
            WHERE home_team_id = $1 or away_team_id = $1"
-    values = [@id]
+    values = [team.id]
     result = SqlRunner.run(sql, values)
     return result.map {|fixture| Fixture.new(fixture)}
   end
