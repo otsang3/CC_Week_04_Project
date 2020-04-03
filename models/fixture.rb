@@ -9,7 +9,7 @@ class Fixture
   def initialize(options)
     @home_team_id = options['home_team_id'].to_i
     @away_team_id = options['away_team_id'].to_i
-    @result = ''
+    @result = options['result']
     @id = options['id'].to_i
   end
 
