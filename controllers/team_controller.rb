@@ -9,3 +9,13 @@ also_reload('../models/*')
 get '/team' do
   erb(:"team/index")
 end
+
+get '/team/new' do
+  erb(:"team/new")
+end
+
+post '/team' do
+  new_team = Team.new(params)
+  new_team.save()
+  erb(:"team/create")
+end
