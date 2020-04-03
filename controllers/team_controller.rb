@@ -6,6 +6,6 @@ require_relative('../models/player')
 require_relative('../models/team')
 also_reload('../models/*')
 
-get '/edit' do
-  erb(:"edit/index")
+get '/team' do
+  erb(:"team/index")
 end
