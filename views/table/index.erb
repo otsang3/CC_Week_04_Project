@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Table</title>
 </head>
+<main>
 <body>
   <table>
     <tr>
@@ -15,7 +16,17 @@
       <th>Draw</th>
       <th>Loss</th>
     </tr>
+  <% for team in @teams %>
+    <tr>
+      <td>Temp</td>
+      <td><%= team.name %></td>
+      <td><%= team.win %></td>
+      <td><%= team.draw %></td>
+      <td><%= team.loss %></td>
+    </tr>
+  <% end %>
   </table>
 
 </body>
+</main>
 </html>

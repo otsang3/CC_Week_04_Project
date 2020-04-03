@@ -7,5 +7,6 @@ require_relative('../models/team')
 also_reload('../models/*')
 
 get '/table' do
+  @teams = Team.sort_by_points()
   erb(:"table/index")
 end
