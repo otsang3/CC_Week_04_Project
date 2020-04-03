@@ -3,21 +3,22 @@ require_relative('./fixture')
 
 class Team
 
-  attr_accessor :name, :win, :draw, :loss
+  attr_accessor :name, :win, :draw, :loss, :points
   attr_reader :id
 
   def initialize(options)
     @name = options['name']
     @id = options['id'].to_i
-    @win = 0
-    @draw = 0
-    @loss = 0
+    @win = options['win'].to_i
+    @draw = options['draw'].to_i
+    @loss = options['loss'].to_i
+    @points = options['points'].to_i
   end
 
   def save()
-    sql = "INSERT INTO teams (name, win, draw, loss)
-           VALUES ($1, $2, $3, $4) RETURNING *"
-    values = [@name, @win, @draw, @loss]
+    sql = "INSERT INTO teams (name, win, draw, loss, points)
+           VALUES ($1, $2, $3, $4, $5) RETURNING *"
+    values = [@name, @win, @draw, @loss, @points]
     result = SqlRunner.run(sql, values).first
     @id = result['id'].to_i
   end
@@ -30,9 +31,9 @@ class Team
 
   def update()
     sql = "UPDATE teams
-           SET name = $1, win = $2, draw = $3, loss = $4
-           WHERE id = $5"
-    values = [@name, @win, @draw, @loss, @id]
+           SET name = $1, win = $2, draw = $3, loss = $4, points = $5
+           WHERE id = $6"
+    values = [@name, @win, @draw, @loss, @points, @id]
     SqlRunner.run(sql, values)
   end
 
@@ -49,11 +50,13 @@ class Team
 
   def win_match()
     @win += 1
+    @points += 3
     update
   end
 
   def draw_match()
     @draw += 1
+    @points += 1
     update
   end
 
@@ -62,12 +65,21 @@ class Team
     update
   end
 
+  # Method to return all fixtures for provided team
   def Team.fixtures(team)
     sql = "SELECT * FROM fixtures
            WHERE home_team_id = $1 or away_team_id = $1"
     values = [team.id]
     result = SqlRunner.run(sql, values)
     return result.map {|fixture| Fixture.new(fixture)}
+  end
+
+  # Method to return teams in an array by number of points
+  def Team.sort_by_points()
+    sql = "SELECT * FROM teams"
+    result = SqlRunner.run(sql, [])
+    result_map = result.map {|team| Team.new(team)}
+    return result_map.sort_by {|team| -team.points}
   end
 
 end

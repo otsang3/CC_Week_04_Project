@@ -8,7 +8,8 @@ CREATE TABLE teams (
   name VARCHAR(255),
   win INT,
   draw INT,
-  loss INT
+  loss INT,
+  points INT
 );
 
 CREATE TABLE players (
