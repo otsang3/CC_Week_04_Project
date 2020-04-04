@@ -34,4 +34,7 @@ get '/teams/:id/edit' do
 end
 
 post '/teams/:id/edit' do
+  team = Team.new(params)
+  team.update
+  redirect to("/teams")
 end
