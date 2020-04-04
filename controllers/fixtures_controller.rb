@@ -11,3 +11,17 @@ get '/fixtures' do
   @teams = Team.all()
   erb(:"fixtures/index")
 end
+
+get '/fixtures/new' do
+  @fixtures = Fixture.all()
+  @teams = Team.all()
+  erb(:"fixtures/new")
+end
+
+get '/fixtures/:id/delete' do
+end
+
+post '/fixtures' do
+  new_fixture = Fixture.new(params)
+  new_fixture.save
+end

@@ -13,9 +13,9 @@
     <li>
       <p> <%= Fixture.home_team(fixture).name %> v <%= Fixture.away_team(fixture).name %> </p>
         <p>
-          <form action="/teams/<%= fixture.id %>/delete" method="POST">
+          <form action="/fixtures/<%= fixture.id %>/delete" method="POST">
             <input type="submit" value="delete"></form>
-          <form action="/teams/<%= fixture.id %>/edit" method="GET">
+          <form action="/fixtures/<%= fixture.id %>/edit" method="GET">
             <input type="submit" value="edit"></form>
         </p>
     </li>

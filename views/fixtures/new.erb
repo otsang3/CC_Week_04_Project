@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Add new fixture</title>
+</head>
+<body>
+
+<form action="/fixtures" method="POST">
+
+  <label for="home_team">Home Team:</label>
+  <select id="home_team" name="home_team_id">
+    <% for fixture in @fixtures %>
+      <option value="<%= fixture.id %>">
+          <%=  fixture.id %>
+      </option>
+    <% end %>
+  </select>
+
+  <label for="away_team">Away Team:</label>
+   <select id="away_team" name="away_team_id">
+     <% for fixture in @fixtures %>
+       <option value="<%= fixture.id %>">
+           <%=  fixture.id %>
+       </option>
+     <% end %>
+   </select>
+
+<input type='submit' value="Create fixture"/>
+
+</form>
+
+</body>
+</html>
