@@ -25,3 +25,10 @@ post '/teams/:id/delete' do
   Team.delete(params[:id])
   redirect to("/teams")
 end
+
+get '/teams/:id/edit' do
+  id = params['id'].to_i
+  @team = Team.find(id)
+  @teams = Team.all()
+  erb(:"team/edit")
+end

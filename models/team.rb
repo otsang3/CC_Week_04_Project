@@ -48,6 +48,13 @@ class Team
     SqlRunner.run(sql, values)
   end
 
+  def Team.find(id)
+    sql ="SELECT * FROM teams WHERE id = $1"
+    values = [id]
+    result = SqlRunner.run(sql, values).first
+    return result
+  end
+
   def win_match()
     @win += 1
     @points += 3
