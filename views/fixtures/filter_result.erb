@@ -14,6 +14,9 @@
       <p> <%= Fixture.home_team(fixture).name %> v <%= Fixture.away_team(fixture).name %> </p>
     </li>
       <% end %>
+      <% if fixture == nil %>
+      <p>No remaining games</p>
+      <% end %>
   </ul>
 
 </body>

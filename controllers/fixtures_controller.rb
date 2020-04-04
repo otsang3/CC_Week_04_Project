@@ -8,7 +8,7 @@ also_reload('../models/*')
 
 
 get '/fixtures' do
-  @fixtures = Fixture.all()
+  @fixtures = Fixture.all_with_no_results()
   @teams = Team.all()
   erb(:"fixtures/index")
 end
@@ -26,7 +26,7 @@ end
 
 get '/fixtures/filter/result' do
   id = params[:id].to_i
-  @fixtures = Fixture.find_all_games(id)
+  @fixtures = Fixture.find_all_remaining_games(id)
   @teams = Team.all()
   erb(:"fixtures/filter_result")
 end
@@ -54,12 +54,4 @@ post '/fixtures/:id/edit' do
   amended_fixture = Fixture.new(params)
   amended_fixture.update
   redirect to('/fixtures')
-end
-
-get '/fixtures/:id/fixtures' do
-  id = params['id'].to_i
-  @fixture = Fixture.find(id)
-  @fixtures = Fixture.all()
-  @teams = Team.all()
-  erb(:"fixtures/fixtures")
 end
