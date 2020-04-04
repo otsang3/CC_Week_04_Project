@@ -7,13 +7,6 @@ require_relative('../models/team')
 also_reload('../models/*')
 
 
-get '/fixtures/test' do
-  id = params['id'].to_i
-  @fixtures = Fixture.find(id)
-  @teams = Team.all()
-  erb(:"fixtures/test")
-end
-
 get '/fixtures' do
   @fixtures = Fixture.all()
   @teams = Team.all()
@@ -29,6 +22,13 @@ end
 get '/fixtures/filter' do
   @teams = Team.all()
   erb(:"fixtures/filter")
+end
+
+get '/fixtures/filter/result' do
+  id = params[:id].to_i
+  @fixtures = Fixture.find_all_games(id)
+  @teams = Team.all()
+  erb(:"fixtures/filter_result")
 end
 
 post '/fixtures/:id/delete' do

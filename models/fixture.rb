@@ -75,10 +75,10 @@ class Fixture
     return Fixture.new(result)
   end
 
-  def Fixture.find_all_games(team)
+  def Fixture.find_all_games(team_id)
     sql = "SELECT * FROM fixtures
            WHERE home_team_id = $1 or away_team_id = $1"
-    values = [team.id]
+    values = [team_id]
     result = SqlRunner.run(sql, values)
     return result.map {|fixture| Fixture.new(fixture)}
   end
