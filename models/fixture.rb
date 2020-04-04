@@ -34,8 +34,11 @@ class Fixture
     return result.map {|fixture| Fixture.new(fixture)}
   end
 
-
-
+  def Fixture.all_with_results()
+    sql = "SELECT * FROM fixtures WHERE result IS NOT NULL"
+    result = SqlRunner.run(sql, [])
+    return result.map {|fixture| Fixture.new(fixture)}
+  end
 
   def update()
     sql = "UPDATE fixtures
