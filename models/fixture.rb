@@ -28,6 +28,15 @@ class Fixture
     return result.map {|fixture| Fixture.new(fixture)}
   end
 
+  def Fixture.all_with_no_results()
+    sql = "SELECT * FROM fixtures WHERE result IS NULL"
+    result = SqlRunner.run(sql, [])
+    return result.map {|fixture| Fixture.new(fixture)}
+  end
+
+
+
+
   def update()
     sql = "UPDATE fixtures
            SET home_team_id = $1, away_team_id = $2, result = $3
@@ -89,10 +98,10 @@ class Fixture
   def result(winning_team_id)
     case
     when winning_team_id == @home_team_id
-      @result = "HOME"
+      @result = @home_team_id
       update
     when winning_team_id == @away_team_id
-      @result = "AWAY"
+      @result = @away_team_id
       update
     when winning_team_id == "draw"
       @result = "DRAW"

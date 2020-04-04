@@ -24,6 +24,8 @@ fixture3 = Fixture.new({'home_team_id' => team_mci.id,
 fixture1.save()
 fixture2.save()
 fixture3.save()
+fixture1.result(team_liv.id)
+fixture2.result(team_che.id)
 
 player1 = Player.new({'first_name' => 'Sadio',
                       'last_name' => 'Mane',
