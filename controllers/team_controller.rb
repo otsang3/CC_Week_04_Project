@@ -6,16 +6,22 @@ require_relative('../models/player')
 require_relative('../models/team')
 also_reload('../models/*')
 
-get '/team' do
+get '/teams' do
+  @teams = Team.all()
   erb(:"team/index")
 end
 
-get '/team/new' do
+get '/teams/new' do
   erb(:"team/new")
 end
 
-post '/team' do
+post '/teams' do
   new_team = Team.new(params)
   new_team.save()
   erb(:"team/create")
+end
+
+post '/teams/:id/delete' do
+  Team.delete(params[:id])
+  redirect to("/teams")
 end
