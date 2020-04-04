@@ -18,10 +18,13 @@ get '/fixtures/new' do
   erb(:"fixtures/new")
 end
 
-get '/fixtures/:id/delete' do
+post '/fixtures/:id/delete' do
+  Fixture.delete(params[:id])
+  redirect to("/fixtures")
 end
 
 post '/fixtures' do
   new_fixture = Fixture.new(params)
   new_fixture.save
+  redirect to("fixtures")
 end

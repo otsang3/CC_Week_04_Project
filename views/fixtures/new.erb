@@ -12,18 +12,18 @@
 
   <label for="home_team">Home Team:</label>
   <select id="home_team" name="home_team_id">
-    <% for fixture in @fixtures %>
-      <option value="<%= fixture.id %>">
-          <%=  fixture.id %>
+    <% for team in @teams %>
+      <option value="<%= team.id %>">
+          <%=  team.name %>
       </option>
     <% end %>
   </select>
 
   <label for="away_team">Away Team:</label>
    <select id="away_team" name="away_team_id">
-     <% for fixture in @fixtures %>
-       <option value="<%= fixture.id %>">
-           <%=  fixture.id %>
+     <% for team in @teams %>
+       <option value="<%= team.id %>">
+           <%=  team.name %>
        </option>
      <% end %>
    </select>
