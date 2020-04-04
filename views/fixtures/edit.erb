@@ -10,7 +10,7 @@
 
   <ul>
     <li>
-      <p> <%= @fixture.id %> </p>
+      <p> <%= Fixture.home_team(@fixture).name %> v <%= Fixture.away_team(@fixture).name %> </p>
         <p>
         <form action="/fixtures/<%= @fixture.id %>/edit" method="POST">
           <label for="home_team">Home Team:</label>
