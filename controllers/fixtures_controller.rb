@@ -7,5 +7,7 @@ require_relative('../models/team')
 also_reload('../models/*')
 
 get '/fixtures' do
-  erb(:"edit/index")
+  @fixtures = Fixture.all()
+  @teams = Team.all()
+  erb(:"fixtures/index")
 end
