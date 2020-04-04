@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Edit a fixture</title>
+</head>
+<body>
+
+  <ul>
+    <li>
+      <p> <%= @fixture.id %> </p>
+        <p>
+        <form action="/fixtures/<%= @fixture.id %>/edit" method="POST">
+          <label for="home_team">Home Team:</label>
+          <select id="home_team" name="home_team_id">
+            <% for team in @teams %>
+              <option value="<%= team.id %>">
+                  <%=  team.name %>
+              </option>
+            <% end %>
+          </select>
+
+          <label for="away_team">Away Team:</label>
+           <select id="away_team" name="away_team_id">
+             <% for team in @teams %>
+               <option value="<%= team.id %>">
+                   <%=  team.name %>
+               </option>
+             <% end %>
+           </select>
+           <button class="form_button" type="submit" name="">Submit</button>
+        </p>
+    </li>
+  </ul>
+
+</body>
+</html>

@@ -28,3 +28,17 @@ post '/fixtures' do
   new_fixture.save
   redirect to("fixtures")
 end
+
+get '/fixtures/:id/edit' do
+  id = params['id'].to_i
+  @fixture = Fixture.find(id)
+  @fixtures = Fixture.all()
+  @teams = Team.all()
+  erb(:"fixtures/edit")
+end
+
+post '/fixtures/:id/edit' do
+  amended_fixture = Fixture.new(params)
+  amended_fixture.update
+  redirect to('/fixtures')
+end
