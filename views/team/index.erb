@@ -15,6 +15,8 @@
         <p>
           <form action="/teams/<%= team.id %>/delete" method="POST">
             <input type="submit" value="delete"></form>
+          <form action="/teams/<%= team.id %>/edit" method="GET">
+            <input type="submit" value="edit"></form>
         </p>
     </li>
     <% end %>

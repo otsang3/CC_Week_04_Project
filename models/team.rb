@@ -52,7 +52,8 @@ class Team
     sql ="SELECT * FROM teams WHERE id = $1"
     values = [id]
     result = SqlRunner.run(sql, values).first
-    return result
+    return nil if result == nil
+    return Team.new(result)
   end
 
   def win_match()

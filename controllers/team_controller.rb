@@ -32,3 +32,6 @@ get '/teams/:id/edit' do
   @teams = Team.all()
   erb(:"team/edit")
 end
+
+post '/teams/:id/edit' do
+end
