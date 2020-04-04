@@ -54,6 +54,21 @@ class Fixture
     return result.map {|team| Team.new(team)}
   end
 
+  def Fixture.home_team(fixture)
+    sql = "SELECT * FROM teams WHERE id = $1"
+    values = [fixture.home_team_id]
+    result = SqlRunner.run(sql, values).first
+    return Team.new(result)
+  end
+
+  def Fixture.away_team(fixture)
+    sql = "SELECT * FROM teams WHERE id = $1"
+    values = [fixture.away_team_id]
+    result = SqlRunner.run(sql, values).first
+    return Team.new(result)
+  end
+
+
   # Determines the winner of the match and updates the tables
   # if draw, put 'draw' as the parameter
   def result(winning_team_id)
