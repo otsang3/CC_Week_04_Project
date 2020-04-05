@@ -101,11 +101,13 @@ class Fixture
   def outcome()
     case
     when @result == @home_team_id
-      p 'HOME WIN'
+      home_team = Team.find(@home_team_id)
+      p "#{home_team.name} WIN"
     when @result == @away_team_id
-      p 'AWAY WIN'
-    when @result == 'draw'
-      p 'draw'
+      away_team = Team.find(@away_team_id)
+      p "#{away_team.name} WIN"
+    when @result == 0
+      p 'DRAW'
     else
       return nil
     end
