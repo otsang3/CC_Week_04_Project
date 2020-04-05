@@ -7,8 +7,8 @@ class Fixture
   attr_reader :id
 
   def initialize(options)
-    @home_team_id = options['home_team_id'].to_i
-    @away_team_id = options['away_team_id'].to_i
+    @home_team_id = options['home_team_id'].to_i if options['home_team_id'] 
+    @away_team_id = options['away_team_id'].to_i if options['away_team_id']
     @result = options['result'].to_i if options['result']
     @id = options['id'].to_i
   end
@@ -98,6 +98,7 @@ class Fixture
 
   # Determines whether the winner of the fixture is the home or away team,
   # or 'draw' if neither team won
+  # created for views/results/index.erb
   def outcome()
     case
     when @result == @home_team_id

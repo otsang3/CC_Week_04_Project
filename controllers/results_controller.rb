@@ -11,3 +11,17 @@ get '/results' do
   @teams = Team.all()
   erb(:"results/index")
 end
+
+get '/results/:id/edit' do
+  id = params['id'].to_i
+  @fixture = Fixture.find(id)
+  @fixtures = Fixture.all()
+  @teams = Team.all()
+  erb(:"results/edit")
+end
+
+post '/results/:id/edit' do
+  amended_result = Fixture.new(params)
+  amended_result.update
+  redirect to('/results')
+end
