@@ -95,4 +95,8 @@ class Team
     return result_map.sort_by {|team| -team.points}
   end
 
+  # Create method to clear record and points gained from a fixture that is corrected
+  def Team.correct(team)
+  end
+
 end
