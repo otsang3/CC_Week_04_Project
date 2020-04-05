@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Results</title>
+</head>
+<body>
+
+  <ul>
+    <% for fixture in @fixtures %>
+    <li>
+      <p> <%= Fixture.home_team(fixture).name %> v <%= Fixture.away_team(fixture).name %> [<%= fixture.outcome()%>]</p>
+        <p>
+          <form action="/fixtures/<%= fixture.id %>/delete" method="POST">
+            <input type="submit" value="delete"></form>
+          <form action="/fixtures/<%= fixture.id %>/edit" method="GET">
+            <input type="submit" value="edit"></form>
+        </p>
+    </li>
+    <% end %>
+  </ul>
+
+<li><a href="/fixtures/new">Create new result</a></li>
+<li><a href="/fixtures/filter">Filter results by team</a></li>
+
+</body>
+</html>

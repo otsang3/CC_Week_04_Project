@@ -56,21 +56,26 @@ class Team
     return Team.new(result)
   end
 
-  def win_match()
-    @win += 1
-    @points += 3
-    update
+  def Team.get_team_id(team)
+    return if team == "draw"
+    return team.id
   end
 
-  def draw_match()
-    @draw += 1
-    @points += 1
-    update
+  def Team.win_match(team)
+    team.win += 1
+    team.points += 3
+    team.update
   end
 
-  def lose_match()
-    @loss += 1
-    update
+  def Team.draw_match(team)
+    team.draw += 1
+    team.points += 1
+    team.update
+  end
+
+  def Team.lose_match(team)
+    team.loss += 1
+    team.update
   end
 
   # Method to return all fixtures for provided team
