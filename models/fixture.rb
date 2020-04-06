@@ -116,15 +116,21 @@ class Fixture
       home_team.win -= 1
       home_team.points -= 3
       away_team.loss -= 1
+      home_team.games_played -= 1
+      away_team.games_played -= 1
     when @result == away_team.id
       away_team.win -= 1
       away_team.points -= 3
       home_team.loss -=1
+      home_team.games_played -= 1
+      away_team.games_played -= 1
     when @result == 0
       home_team.draw -= 1
       home_team.points -=1
       away_team.draw -= 1
       away_team.points -=1
+      home_team.games_played -= 1
+      away_team.games_played -= 1
     else return nil
     end
     home_team.update
@@ -143,15 +149,21 @@ class Fixture
       home_team.win += 1
       home_team.points += 3
       away_team.loss += 1
+      home_team.games_played += 1
+      away_team.games_played += 1
     when @result == away_team.id
       away_team.win += 1
       away_team.points += 3
       home_team.loss +=1
+      home_team.games_played += 1
+      away_team.games_played += 1
     when @result == 0
       home_team.draw += 1
       home_team.points +=1
       away_team.draw += 1
       away_team.points +=1
+      home_team.games_played += 1
+      away_team.games_played += 1
     else return nil
     end
     home_team.update

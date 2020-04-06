@@ -14,6 +14,7 @@
     <tr>
       <th>Position</th>
       <th>Club</th>
+      <th>Matches Played</th>
       <th>Win</th>
       <th>Draw</th>
       <th>Loss</th>
@@ -23,9 +24,11 @@
     <tr>
       <td><%= @teams.index(team) + 1 %></td>
       <td><%= team.name %></td>
+      <td><%= team.games_played %></td>
       <td><%= team.win %></td>
       <td><%= team.draw %></td>
       <td><%= team.loss %></td>
+
       <td><%= team.points %></td>
     </tr>
   <% end %>

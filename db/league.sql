@@ -9,6 +9,7 @@ CREATE TABLE teams (
   win INT,
   draw INT,
   loss INT,
+  games_played INT,
   points INT
 );
 
