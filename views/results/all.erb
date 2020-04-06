@@ -8,14 +8,12 @@
 </head>
 <body>
 
-<h2>&emsp; Match Results</h2>
+<h2>Match Results</h2>
   <ul>
     <% for fixture in @fixtures %>
     <li>
       <p> <%= Fixture.home_team(fixture).name %> v <%= Fixture.away_team(fixture).name %> [<%= fixture.outcome()%>]</p>
-        <p>
         <br>
-        </p>
     </li>
     <% end %>
   </ul>

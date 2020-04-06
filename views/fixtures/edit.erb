@@ -11,7 +11,6 @@
   <ul>
     <li>
       <p> <%= Fixture.home_team(@fixture).name %> v <%= Fixture.away_team(@fixture).name %> </p>
-        <p>
         <form action="/fixtures/<%= @fixture.id %>/edit" method="POST">
           <label for="home_team">Home Team:</label>
           <select id="home_team" name="home_team_id">
@@ -31,7 +30,6 @@
              <% end %>
            </select>
            <button class="form_button" type="submit" name="">Submit</button>
-        </p>
     </li>
   </ul>
 
