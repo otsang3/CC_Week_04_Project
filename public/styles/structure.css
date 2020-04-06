@@ -7,14 +7,16 @@ body {
 .column {
   float: left;
   padding: 10px;
+  border-right: 1px solid grey;
+  height: 700px;
 }
 
 .left {
-  width: 70%;
+  width: 75%;
 }
 
 .right {
-  width: 15%;
+  width: 22%;
 }
 
 /* Clear floats after the columns */
@@ -139,4 +141,9 @@ td {
 
 .dropdown:hover .dropdown-content {
   display: block;
+}
+
+.test {
+  float: left;
+  padding-right: 3px;
 }
