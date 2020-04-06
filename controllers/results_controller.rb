@@ -40,17 +40,20 @@ end
 post '/results/:id/edit' do
   old_id = params['id'].to_i
   old_fixture = Fixture.find(old_id)
+  old_fixture.remove_stats_from_fixture
   amended_result = Fixture.new(params)
   amended_result.update
   # update team record and points
   new_id = params['id'].to_i
   new_fixture = Fixture.find(new_id)
-  home_team = Fixture.home_team(new_fixture)
-  away_team = Fixture.away_team(new_fixture)
+  new_fixture.add_stats_from_fixture()
   redirect to('/results')
 end
 
 post '/results/:id/delete' do
+  id = params['id'].to_i
+  fixture = Fixture.find(id)
+  fixture.remove_stats_from_fixture
   Fixture.delete(params[:id])
   redirect to("/results")
 end

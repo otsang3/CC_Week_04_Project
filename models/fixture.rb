@@ -119,7 +119,7 @@ class Fixture
     when @result == away_team.id
       away_team.win -= 1
       away_team.points -= 3
-      home_team.loss +=1
+      home_team.loss -=1
     when @result == 0
       home_team.draw -= 1
       home_team.points -=1
