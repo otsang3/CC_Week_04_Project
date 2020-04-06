@@ -157,3 +157,8 @@ td {
   float: left;
   padding-right: 3px;
 }
+
+.form-tab {
+  padding-top: 10px;
+  padding-left: 10px;
+}
