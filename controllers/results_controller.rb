@@ -12,6 +12,12 @@ get '/results' do
   erb(:"results/index")
 end
 
+get '/results/all' do
+  @fixtures = Fixture.all_with_results()
+  @teams = Team.all()
+  erb(:"results/all")
+end
+
 get '/results/filter' do
   @teams = Team.all()
   erb(:"results/filter")

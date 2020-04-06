@@ -6,7 +6,45 @@
 </head>
 <body>
   <nav>
-    <ul class="layout-ul">
+
+    <div class="navbar">
+      <a href="/table">League Table</a>
+      <div class="dropdown">
+        <button class="dropbtn">Teams
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+          <a href="/teams/all">All teams</a>
+          <a href="/teams/new">Create a new team</a>
+          <a href="/teams">Edit teams</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button class="dropbtn">Fixtures
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+          <a href="/fixtures/all">All fixtures</a>
+          <a href="/fixtures/filter">Find fixtures by team</a>
+          <a href="/fixtures/new">Create a new fixture</a>
+          <a href="/fixtures">Edit fixtures</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button class="dropbtn">Results
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+          <a href="/results/all">All results</a>
+          <a href="/results/filter">Find results by team</a>
+          <a href="/results/new">Create a new result</a>
+          <a href="/results">Edit results</a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- <ul class="layout-ul">
       <li class="layout-li">
         <a class="layout-li-a" href="/table">League Table</a>
       </li>
@@ -14,14 +52,17 @@
         <a class="layout-li-a" href="/fixtures">Fixtures</a>
       </li>
       <li class="layout-li">
-        <a class="layout-li-a" href="/teams">Teams</a>
-      </li>
+        <button class="dropbtn">Teams</button>
+        <div class="dropdown-content">
+          <a href="/teams/all">All teams</a>
+          <a href="/teams/new">Create New Team</a>
+          <a href="/teams">Edit team</a>
       <li class="layout-li">
         <a class="layout-li-a" href="/stats">Stats</a>
       </li>
       <li class="layout-li">
         <a class="layout-li-a" href="/results">Results</a></li>
-    </ul>
+    </ul> -->
   </nav>
 </body>
 <main>

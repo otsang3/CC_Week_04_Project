@@ -11,6 +11,11 @@ get '/teams' do
   erb(:"team/index")
 end
 
+get '/teams/all' do
+  @teams = Team.all()
+  erb(:"team/all")
+end
+
 get '/teams/new' do
   erb(:"team/new")
 end

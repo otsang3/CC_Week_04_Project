@@ -13,6 +13,11 @@ get '/fixtures' do
   erb(:"fixtures/index")
 end
 
+get '/fixtures/all' do
+  @fixtures = Fixture.all_with_no_results
+  erb(:"fixtures/all")
+end
+
 get '/fixtures/new' do
   @fixtures = Fixture.all()
   @teams = Team.all()
