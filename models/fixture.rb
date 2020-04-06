@@ -7,7 +7,7 @@ class Fixture
   attr_reader :id
 
   def initialize(options)
-    @home_team_id = options['home_team_id'].to_i if options['home_team_id'] 
+    @home_team_id = options['home_team_id'].to_i if options['home_team_id']
     @away_team_id = options['away_team_id'].to_i if options['away_team_id']
     @result = options['result'].to_i if options['result']
     @id = options['id'].to_i
@@ -94,6 +94,28 @@ class Fixture
     result = SqlRunner.run(sql, values)
     return nil if result == nil
     return result.map {|fixture| Fixture.new(fixture)}
+  end
+
+  def Fixture.find_all_played_games(team_id)
+    sql = "SELECT * FROM fixtures
+           WHERE result IS NOT NULL AND (home_team_id = $1 OR away_team_id = $1)"
+    values = [team_id]
+    result = SqlRunner.run(sql, values)
+    return nil if result == nil
+    return result.map {|fixture| Fixture.new(fixture)}
+  end
+
+  # Method created for controllers/results_controller to display the
+  # result of a fixture from the selected team's perspective
+  def result_indicator(id)
+    case
+    when @result == id
+      p "WON"
+    when @result == 0
+      p "DRAW"
+    else
+      p "LOST"
+    end
   end
 
   # Determines whether the winner of the fixture is the home or away team,

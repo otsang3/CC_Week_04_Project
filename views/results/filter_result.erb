@@ -11,16 +11,17 @@
   <ul>
     <% for fixture in @fixtures %>
     <li>
-      <p> <%= Fixture.home_team(fixture).name %> v <%= Fixture.away_team(fixture).name %> </p>
+      <p> <%= Fixture.home_team(fixture).name %> v <%= Fixture.away_team(fixture).name %>
+      [<%= fixture.result_indicator(@id) %>]</p>
     </li>
       <% end %>
       <% if fixture == nil %>
-      <p>No remaining games</p>
+      <p>No completed games</p>
       <% end %>
   </ul>
 
-  <li><a href="/fixtures/new">Create new fixture</a></li>
-  <li><a href="/fixtures/filter">Filter fixtures by team</a></li>
+  <li><a href="/results/new">Create new result</a></li>
+  <li><a href="/results/filter">Filter results by team</a></li>
 
 </body>
 </html>

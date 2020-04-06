@@ -26,7 +26,8 @@ class Team
   def Team.all()
     sql = "SELECT * FROM teams"
     result = SqlRunner.run(sql, [])
-    return result.map {|team| Team.new(team)}
+    result_map = result.map {|team| Team.new(team)}
+    return result_map.sort_by {|team| team.name}
   end
 
   def update()

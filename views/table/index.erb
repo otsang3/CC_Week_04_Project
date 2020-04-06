@@ -15,14 +15,16 @@
       <th>Win</th>
       <th>Draw</th>
       <th>Loss</th>
+      <th>Points</th>
     </tr>
   <% for team in @teams %>
     <tr>
-      <td>Temp</td>
+      <td><%= @teams.index(team) + 1 %></td>
       <td><%= team.name %></td>
       <td><%= team.win %></td>
       <td><%= team.draw %></td>
       <td><%= team.loss %></td>
+      <td><%= team.points %></td>
     </tr>
   <% end %>
   </table>

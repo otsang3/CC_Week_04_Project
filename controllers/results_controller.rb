@@ -12,6 +12,11 @@ get '/results' do
   erb(:"results/index")
 end
 
+get '/results/filter' do
+  @teams = Team.all()
+  erb(:"results/filter")
+end
+
 get '/results/:id/edit' do
   id = params['id'].to_i
   @fixture = Fixture.find(id)
@@ -36,4 +41,12 @@ end
 post '/results/:id/delete' do
   Fixture.delete(params[:id])
   redirect to("/results")
+end
+
+get '/results/filter/result' do
+  id = params[:id].to_i
+  @id = id
+  @fixtures = Fixture.find_all_played_games(id)
+  @teams = Team.all()
+  erb(:"results/filter_result")
 end
