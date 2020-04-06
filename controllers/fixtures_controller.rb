@@ -38,13 +38,13 @@ end
 
 post '/fixtures/:id/delete' do
   Fixture.delete(params[:id])
-  redirect to("/fixtures")
+  redirect to("/fixtures/all")
 end
 
 post '/fixtures' do
   new_fixture = Fixture.new(params)
   new_fixture.save
-  redirect to("fixtures")
+  redirect to("fixtures/all")
 end
 
 get '/fixtures/:id/edit' do

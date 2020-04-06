@@ -23,7 +23,7 @@ end
 post '/teams' do
   new_team = Team.new(params)
   new_team.save()
-  erb(:"team/create")
+  erb(:"team/all")
 end
 
 post '/teams/:id/delete' do
