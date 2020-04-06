@@ -32,3 +32,11 @@ ul {
 
 .layout-li-a:hover {
   background-color: #111;
+}
+
+.league-table-padding {
+  padding-top: 10px;
+  padding-right: 30px;
+  padding-bottom: 50px;
+  padding-left: 30px;
+}
