@@ -1,7 +1,13 @@
 body {
-  background: white url('/images/background.jpg');
+  background: white;
   background-size: 100%;
   font-family: Lucida Console, Courier, monospace;
+}
+
+footer {
+  background: #F5F5F5;
+  background-size: 100%;
+  font-family: Lucida Console, Courier, monospace
 }
 
 .column {
