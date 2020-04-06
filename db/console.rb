@@ -33,7 +33,7 @@ fixture4 = Fixture.new({'home_team_id' => team_liv.id,
 fixture5 = Fixture.new({'home_team_id' => team_liv.id,
                         'away_team_id' => team_man.id})
 fixture6 = Fixture.new({'home_team_id' => team_mci.id,
-                        'away_team_id' => team_liv.id})
+                        'away_team_id' => team_spu.id})
 fixture7 = Fixture.new({'home_team_id' => team_mci.id,
                         'away_team_id' => team_che.id})
 fixture8 = Fixture.new({'home_team_id' => team_mci.id,
@@ -90,6 +90,8 @@ fixture33 = Fixture.new({'home_team_id' => team_wol.id,
                         'away_team_id' => team_che.id})
 fixture34 = Fixture.new({'home_team_id' => team_wol.id,
                          'away_team_id' => team_mci.id})
+fixture41 = Fixture.new({'home_team_id' => team_wol.id,
+                         'away_team_id' => team_man.id})
 fixture35 = Fixture.new({'home_team_id' => team_lei.id,
                          'away_team_id' => team_mci.id})
 fixture36 = Fixture.new({'home_team_id' => team_lei.id,
@@ -102,6 +104,7 @@ fixture39 = Fixture.new({'home_team_id' => team_lei.id,
                          'away_team_id' => team_ars.id})
 fixture40 = Fixture.new({'home_team_id' => team_lei.id,
                          'away_team_id' => team_che.id})
+
 
 
 fixture1.save()
@@ -148,7 +151,7 @@ fixture40.save()
 fixture1.match_result_win(team_liv, team_mci)
 fixture2.match_result_win(team_liv, team_ars)
 fixture3.match_result_win(team_liv, team_che)
-fixture6.match_result_win(team_liv, team_mci)
+fixture6.match_result_win(team_mci, team_spu)
 fixture7.match_result_win(team_mci, team_che)
 fixture8.match_result_win(team_mci, team_ars)
 fixture11.match_result_win(team_che, team_ars)
@@ -169,6 +172,7 @@ fixture35.match_result_win(team_mci, team_lei)
 fixture36.match_result_win(team_liv, team_lei)
 fixture37.match_result_draw(team_lei, team_man)
 fixture38.match_result_win(team_lei, team_ars)
+fixture41.match_result_win(team_man, team_wol)
 
 player1 = Player.new({'first_name' => 'Sadio',
                       'last_name' => 'Mane',

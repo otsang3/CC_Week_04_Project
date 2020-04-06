@@ -23,7 +23,7 @@
   <% for team in @teams %>
     <tr>
       <td><%= @teams.index(team) + 1 %></td>
-      <td><%= team.name %></td>
+      <td class="left-align"><%= team.name %></td>
       <td><%= team.games_played %></td>
       <td><%= team.win %></td>
       <td><%= team.draw %></td>

@@ -75,5 +75,6 @@ end
 post '/results/new/result/:id' do
   result = Fixture.new(params)
   result.update
+  result.add_stats_from_fixture
   redirect to('/results')
 end

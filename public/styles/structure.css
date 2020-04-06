@@ -37,24 +37,28 @@ ul {
 }
 
 th {
-  padding-left: 30px;
-  padding-right: 30px;
+  padding-left: 25px;
+  padding-right: 25px;
   border-bottom: 1px solid #ddd;
+}
+
+.left-align {
+  text-align: left;
 }
 
 td {
   text-align: center;
-  padding-left: 30px;
-  padding-right: 30px;
+  padding-left: 25px;
+  padding-right: 25px;
   border-bottom: 1px solid #ddd;
 }
 
 .table-padding {
-  padding-left: 10px;
+  padding-left: 50px;
 }
 
 .table-heading-padding {
-  padding-left: 275px;
+  padding-left: 415px;
   padding-bottom: 20px;
 }
 
