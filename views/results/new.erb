@@ -4,31 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Add new result</title>
+  <title></title>
 </head>
 <body>
 
-<form action="/fixtures" method="POST">
-
-  <label for="home_team">Home Team:</label>
-  <select id="home_team" name="home_team_id">
-    <% for team in @teams %>
-      <option value="<%= team.id %>">
-          <%=  team.name %>
-      </option>
+  <ul>
+    <% for fixture in @fixtures %>
+    <li>
+      <p> <%= Fixture.home_team(fixture).name %> v <%= Fixture.away_team(fixture).name %> </p>
+        <p>
+          <form action="/results/new/<%= fixture.id %>" method="GET">
+            <input type="submit" value="create result"></form>
+        </p>
+    </li>
     <% end %>
-  </select>
-
-  <label for="away_team">Away Team:</label>
-   <select id="away_team" name="away_team_id">
-     <% for team in @teams %>
-       <option value="<%= team.id %>">
-           <%=  team.name %>
-       </option>
-     <% end %>
-   </select>
-
-<input type='submit' value="Create fixture"/>
+  </ul>
 
 </form>
 

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title></title>
+</head>
+<body>
+
+  <ul>
+    <li>
+      <p> <%= Fixture.home_team(@fixture).name %> v <%= Fixture.away_team(@fixture).name %> </p>
+        <p>
+        <form action="/results/new/result/<%= @fixture.id %>" method="POST">
+          <label for="result">Result:</label>
+          <select id="result" name="result">
+                <option value="<%= Fixture.home_team(@fixture).id %>">
+                    <%=  Fixture.home_team(@fixture).name %> WIN
+                </option>
+                <option value="<%= Fixture.away_team(@fixture).id %>">
+                    <%=  Fixture.away_team(@fixture).name %> WIN
+                </option>
+                <option value="<%= 0 %>">DRAW</option>
+            </select>
+             <input id="home_team_id" name="home_team_id" type="hidden" value="<%= Fixture.home_team(@fixture).id %>">
+             <input id="away_team_id" name="away_team_id" type="hidden" value="<%= Fixture.away_team(@fixture).id %>">
+           <button class="form_button" type="submit" name="">Submit</button>
+        </p>
+    </li>
+  </ul>
+
+</body>
+</html>

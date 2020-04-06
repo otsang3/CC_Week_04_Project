@@ -17,6 +17,18 @@ get '/results/filter' do
   erb(:"results/filter")
 end
 
+get '/results/new' do
+  @fixtures = Fixture.all_with_no_results()
+  erb(:"results/new")
+end
+
+get '/results/new/:id' do
+  id = params['id'].to_i
+  @fixture = Fixture.find(id)
+  @teams = Team.all()
+  erb(:"results/new_result")
+end
+
 get '/results/:id/edit' do
   id = params['id'].to_i
   @fixture = Fixture.find(id)
@@ -49,4 +61,10 @@ get '/results/filter/result' do
   @fixtures = Fixture.find_all_played_games(id)
   @teams = Team.all()
   erb(:"results/filter_result")
+end
+
+post '/results/new/result/:id' do
+  result = Fixture.new(params)
+  result.update
+  redirect to('/results')
 end
