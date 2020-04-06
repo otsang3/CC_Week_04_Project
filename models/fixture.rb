@@ -105,6 +105,59 @@ class Fixture
     return result.map {|fixture| Fixture.new(fixture)}
   end
 
+  # Method created for controllers/results_controller
+  # When a played fixture(result) is updated
+  # create a method which removes stats created from the old result
+  def remove_stats_from_fixture()
+    home_team = Team.find(@home_team_id)
+    away_team = Team.find(@away_team_id)
+    case
+    when @result == home_team.id
+      home_team.win -= 1
+      home_team.points -= 3
+      away_team.loss -= 1
+    when @result == away_team.id
+      away_team.win -= 1
+      away_team.points -= 3
+      home_team.loss +=1
+    when @result == 0
+      home_team.draw -= 1
+      home_team.points -=1
+      away_team.draw -= 1
+      away_team.points -=1
+    else return nil
+    end
+    home_team.update
+    away_team.update
+  end
+
+  # Second part of the remove_stats_from_fixture method
+  # Method created for controllers/results_controller
+  # When a played fixture(result) is updated
+  # create a method which updates stats from the revised fixture
+  def add_stats_from_fixture()
+    home_team = Team.find(@home_team_id)
+    away_team = Team.find(@away_team_id)
+    case
+    when @result == home_team.id
+      home_team.win += 1
+      home_team.points += 3
+      away_team.loss += 1
+    when @result == away_team.id
+      away_team.win += 1
+      away_team.points += 3
+      home_team.loss +=1
+    when @result == 0
+      home_team.draw += 1
+      home_team.points +=1
+      away_team.draw += 1
+      away_team.points +=1
+    else return nil
+    end
+    home_team.update
+    away_team.update
+  end
+
   # Method created for controllers/results_controller to display the
   # result of a fixture from the selected team's perspective
   def result_indicator(id)
