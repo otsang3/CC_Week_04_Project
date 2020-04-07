@@ -46,7 +46,7 @@ Displays the table of all teams sorted by points
 
 ### TEAMS
 
-#### ALL TEAMS
+*#### ALL TEAMS*
 Displays all teams
 
 #### CREATE A NEW TEAM
