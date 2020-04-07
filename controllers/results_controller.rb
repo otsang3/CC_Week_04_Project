@@ -69,6 +69,7 @@ get '/results/filter/result' do
   @id = id
   @fixtures = Fixture.find_all_played_games(id)
   @teams = Team.all()
+  @selected_team = Team.find(id)
   erb(:"results/filter_result")
 end
 

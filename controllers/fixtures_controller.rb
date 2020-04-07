@@ -33,6 +33,7 @@ get '/fixtures/filter/result' do
   id = params[:id].to_i
   @fixtures = Fixture.find_all_remaining_games(id)
   @teams = Team.all()
+  @selected_team = Team.find(id)
   erb(:"fixtures/filter_result")
 end
 
