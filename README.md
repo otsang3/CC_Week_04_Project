@@ -49,38 +49,38 @@ Displays the table of all teams sorted by points
 #### *ALL TEAMS*
 Displays all teams
 
-#### CREATE A NEW TEAM
+#### *CREATE A NEW TEAM*
 Allows the user to create a new team with choice of team name
 
-#### EDIT TEAMS
+#### *EDIT TEAMS*
 Allows the user to edit name of an existing team or delete a team
 
 ### FIXTURES
 
-#### ALL FIXTURES
+#### *ALL FIXTURES*
 Displays all fixtures
 
-#### FIND FIXTURE BY TEAM
+#### *FIND FIXTURE BY TEAM*
 Allows the user to select an existing team. Displays all fixtures which includes
 the selected team
 
-#### CREATE NEW FIXTURE
+#### *CREATE NEW FIXTURE*
 Allows the user to create a new fixture with existing teams
 
-#### EDIT FIXTURES
+#### *EDIT FIXTURES*
 Allows the user to edit a fixture and amend the teams for that fixture
 
 ### RESULTS
 
-#### ALL RESULTS
+#### *ALL RESULTS*
 Displays all results (fixtures that have a result ie. home_win, away_win, draw)
 
-#### FIND RESULTS BY TEAM
+#### *FIND RESULTS BY TEAM*
 Allows the user to select an existing team. Displays all results which includes
 the selected team
 
-#### CREATE NEW RESULT
+#### *CREATE NEW RESULT*
 Allows the user to create a new result with existing fixtures
 
-#### EDIT RESULTS
+#### *EDIT RESULTS*
 Allows the user to edit a result and change the outcome
