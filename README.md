@@ -84,3 +84,31 @@ Allows the user to create a new result with existing fixtures
 
 #### *EDIT RESULTS*
 Allows the user to edit a result and change the outcome
+
+## FUTURE PROJECT
+
+### PLAYERS
+
+Add functionality in the app to create players and assign players to teams. \
+Players should have stats such as: goals, assists, no. of yellow cards,
+no. of red cards.
+
+### TEAMS
+
+Add functionality to display all players for each team (dependent on PLAYERS
+function)
+
+### LEAGUE TABLE
+
+Add columns in the table for: goals for, goals against, goal difference
+
+### STATS
+
+Create a new directory to display cool stats such as: top goalscorer,
+most assists, most red cards, most yellow cards.
+
+### RESULTS
+
+Add functionality to input goals scored, assists, yellow/red cards awarded in
+each result. Ensure that these stats are also updated to the LEAGUE TABLE and
+STATS.
