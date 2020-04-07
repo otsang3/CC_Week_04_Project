@@ -15,8 +15,8 @@ match.
 
 ## PREREQUISITES
 
-Install PG
-Install Ruby
+Install PG /
+Install Ruby /
 Install Sinatra
 
 ## INSTALLING
