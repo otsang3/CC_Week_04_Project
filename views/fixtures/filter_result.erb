@@ -9,7 +9,7 @@
 <body>
 
 <h2><%= @selected_team.name %> Upcoming Fixtures</h2>
-  <ul>
+  <ul class="ul-bottom-padding">
     <% for fixture in @fixtures %>
     <li>
       <p> <%= Fixture.home_team(fixture).name %> v <%= Fixture.away_team(fixture).name %> </p>
@@ -17,7 +17,7 @@
     <br>
       <% end %>
       <% if fixture == nil %>
-      <p>No remaining games</p>
+      <p>No upcoming fixtures</p>
       <% end %>
   </ul>
 

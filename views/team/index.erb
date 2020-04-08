@@ -13,13 +13,11 @@
     <% for team in @teams %>
     <li>
       <p> <%= team.name %> </p>
-        <p>
           <form class="layout-li" action="/teams/<%= team.id %>/delete" method="POST">
             <input type="submit" value="delete"></form>
           <form class="layout-li" action="/teams/<%= team.id %>/edit" method="GET">
             <input type="submit" value="edit"></form>
-            <br>
-        </p>
+            <br> <br>
     </li>
     <% end %>
   </ul>
