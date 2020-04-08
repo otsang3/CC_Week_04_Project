@@ -1,5 +1,6 @@
 require_relative('../db/sql_runner')
 require_relative('./fixture')
+require_relative('./player')
 
 class Team
 
@@ -101,8 +102,12 @@ class Team
     return result_map.sort_by {|team| -team.points}
   end
 
-  # Create method to clear record and points gained from a fixture that is corrected
-  def Team.correct(team)
+  # Method to return all players in a team
+  def Team.players(team)
+    sql = "SELECT * FROM players WHERE team_id = $1"
+    values = [team.id]
+    result = SqlRunner.run(sql, values)
+    return result.map {|player| Player.new(player)}
   end
 
 end

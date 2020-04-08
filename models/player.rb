@@ -1,3 +1,6 @@
+require_relative('../db/sql_runner')
+require_relative('./team')
+
 class Player
 
   attr_accessor :first_name, :last_name, :goals,
@@ -9,10 +12,10 @@ class Player
     @first_name = options['first_name']
     @last_name = options['last_name']
     @team_id = options['team_id'].to_i
-    @goals = 0
-    @assists = 0
-    @yellow_cards = 0
-    @red_cards = 0
+    @goals = options['goals'].to_i if options['goals']
+    @assists = options['assists'].to_i if options['assists']
+    @yellow_cards = options['yellow_cards'].to_i if options['yellow_cards']
+    @red_cards = options['red_cards'].to_i if options['red_cards']
   end
 
   def save()
