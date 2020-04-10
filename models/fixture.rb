@@ -28,9 +28,14 @@ class Fixture
     return result.map {|fixture| Fixture.new(fixture)}
   end
 
+  # Create a class method to search for all fixtures that have NO results
   def Fixture.all_with_no_results()
+    # create the SQL query to return from the fixtures table where 'result' is null
     sql = "SELECT * FROM fixtures WHERE result IS NULL"
+    # Assign the result from SqlRunner to a variable named 'result'
     result = SqlRunner.run(sql, [])
+    # For each 'object' that is in the result tuple, create a new Fixture class
+    # and then return the result as an array of the fixtures created
     return result.map {|fixture| Fixture.new(fixture)}
   end
 
