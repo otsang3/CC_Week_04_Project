@@ -1,4 +1,4 @@
-# CC_Week_04_Project
+# Sports League app
 
 ## PROJECT TITLE
 
